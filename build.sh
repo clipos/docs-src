@@ -19,31 +19,7 @@ main() {
         return 1
     fi
 
-    # Cleanup
-    rm -rf "${repo_root_path}/out/doc"
-    mkdir -p "${repo_root_path}/out"
-
-    # Setup the docroot with the Sphinx configuration
-    cp -a "${repo_root_path}/toolkit/docroot" "${repo_root_path}/out/doc"
-
-    # Add the tookit documentation
-    cp -a "${repo_root_path}/toolkit/doc" "${repo_root_path}/out/doc/toolkit"
-
-    # Add the CLIP OS product documentation
-    # TODO: Make this generic accross products
-    cp -a "${repo_root_path}/products/clipos/doc" "${repo_root_path}/out/doc/clipos"
-
-    # Fix the index
-    cat \
-        "${repo_root_path}/out/doc/clipos/index.rst" \
-        "${repo_root_path}/out/doc/toolkit/index.rst" \
-        >> "${repo_root_path}/out/doc/index.rst"
-    rm \
-        "${repo_root_path}/out/doc/toolkit/index.rst" \
-        "${repo_root_path}/out/doc/clipos/index.rst"
-
     # Build the HTML documentation
-    cd "${repo_root_path}/out/doc"
     export SPHINXPROJ="CLIPOS"
     sphinx-build -b html -j auto . _build
 
@@ -61,7 +37,7 @@ See <https://docs.clip-os.org>.
 EOF
 
     # Cleanup
-    rm _build/.buildinfo
+    rm -f _build/.buildinfo
 }
 
 main $@
