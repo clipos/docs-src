@@ -28,4 +28,38 @@ architecture.
    * If you wish to adapt this project to your specific use case, please check
      out the :ref:`derive` guide.
 
+.. toctree::
+   :caption: CLIP OS
+   :maxdepth: 2
+
+   clipos/architecture
+   clipos/security
+   clipos/kernel
+   clipos/boot_integrity
+   clipos/update
+   clipos/roadmap
+   clipos/development
+
+.. toctree::
+   :caption: Development environment
+   :maxdepth: 3
+
+   toolkit/setup
+   toolkit/build
+   toolkit/build-steps
+   toolkit/source-tree
+
+.. toctree::
+   :caption: Contributing
+   :maxdepth: 2
+
+   toolkit/contribute
+   toolkit/derive
+
+.. toctree::
+   :caption: Toolkit API references
+   :maxdepth: 1
+
+   toolkit/cosmk-api
+
 .. vim: set tw=79 ts=2 sts=2 sw=2 et:
