@@ -20,24 +20,8 @@ main() {
     fi
 
     # Build the HTML documentation
-    export SPHINXPROJ="CLIPOS"
+    export SPHINXPROJ='CLIPOS'
     sphinx-build -b html -j auto . _build
-
-    # Disable Jekyll processing for GitHub Pages hosting
-    touch _build/.nojekyll
-
-    # Set CNAME for GitHub Pages hosting
-    echo "docs.clip-os.org" > _build/CNAME
-
-    # Set minimal README
-    cat > _build/README.md <<EOF
-# Static content for docs.clip-os.org
-
-See <https://docs.clip-os.org>.
-EOF
-
-    # Cleanup
-    rm -f _build/.buildinfo
 }
 
 main $@

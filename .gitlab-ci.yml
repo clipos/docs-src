@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: LGPL-2.1-or-later
+# Copyright © 2019 ANSSI. All rights reserved.
+
+stages:
+  - container
+  - doc
+
+# Build container image
+container:
+  stage: container
+  only:
+    - schedules
+  image: quay.io/buildah/stable:latest
+  tags:
+      - clipos
+      - privileged
+  script:
+    - .ci/build_container_image.sh
+
+# Build and push doc
+doc:
+  stage: doc
+  only:
+    - master@CLIPOS/docs-src
+  image: "registry.gitlab.com/clipos/docs-src:latest"
+  tags:
+      - clipos
+      - unprivileged
+  script:
+    - .ci/build_upload_documentation.sh
