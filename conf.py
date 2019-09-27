@@ -43,8 +43,6 @@ needs_sphinx = '1.7'
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx.ext.autodoc',
-    'sphinx_autodoc_typehints',
     'sphinx.ext.viewcode',
     'sphinx.ext.graphviz',
 ]
@@ -89,9 +87,6 @@ pygments_style = 'sphinx'
 suppress_warnings = [
         'ref.python'
 ]
-autodoc_default_options = {
-        'ignore-module-all': True
-}
 
 # Enumerate figures
 numfig = True

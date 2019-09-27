@@ -56,10 +56,4 @@ architecture.
    toolkit/contribute
    toolkit/derive
 
-.. toctree::
-   :caption: Toolkit API references
-   :maxdepth: 1
-
-   toolkit/cosmk-api
-
 .. vim: set tw=79 ts=2 sts=2 sw=2 et:
