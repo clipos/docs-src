@@ -11,19 +11,72 @@ if [[ "${EUID}" == 0 ]]; then
     exit 1
 fi
 
-main() {
-    readonly repo_root_path="$(cosmk repo-root-path)"
+# TODO:
+# * Offline mode: skip image pull, use alternative registry, etc.
 
-    if [[ -z "${repo_root_path}" ]]; then
-        echo "[!] CLIP OS toolkit environment not activated!"
-        return 1
+main() {
+    # Registry
+    readonly registry="registry.gitlab.com"
+    # Image name
+    readonly image_name="clipos/docs-src"
+    # Full container image name including registry
+    local image="${registry}/${image_name}"
+
+    # Variable to store the return code for potentially failing commands
+    local rc=0
+
+    local runtime=""
+    # Is sphinx installed on the system and are we told to use it?
+    if [[ ( -n "$(command -v sphinx-build)" ) && ( -n "${CLIPOS_USE_HOST_TOOLS+x}" ) ]]; then
+        runtime="host"
+    # Is podman or docker available?
+    elif [[ -n "$(command -v podman)" ]]; then
+        runtime="podman"
+    elif [[ -n "$(command -v docker)" ]]; then
+        runtime="docker"
+    else
+        >&2 echo "Could not found either podman or docker in PATH."
+        >&2 echo "Set CLIPOS_USE_HOST_TOOLS="true" if you want to sphinx-build from your system."
+        exit 1
+    fi
+
+    local cmd="sphinx-build -b html -j auto . _build"
+
+    local user=""
+    if [[ ${runtime} == "podman" || ${runtime} == "docker" ]]; then
+        # Only try to run in non-privilege mode if using podman and /etc/sub{u,g}uid is configured
+        if [[ ( -z "$(grep "$(id --user --name):" /etc/subuid)" ) || ( ${runtime} == "docker" ) ]]; then
+            echo "[*] Running using privileged ${runtime} container"
+            runtime="sudo ${runtime}"
+            user="--user $(id --user):"
+        else
+            echo "[*] Running using unprivileged ${runtime} container"
+            user=""
+        fi
+        # Look for image
+        ${runtime} inspect "${image}" > /dev/null && rc=${?} || rc=${?}
+        if [[ ${rc} -ne 0 ]]; then
+            # Pull image from GitLab registry
+            ${runtime} pull "${image}" && rc=${?} || rc=${?}
+            if [[ ${rc} -ne '0' ]]; then
+                # Build image
+                pushd .ci > /dev/null
+                ${runtime} build -f Dockerfile -t "${image_name}" .
+                popd > /dev/null
+                image="${image_name}"
+            fi
+        fi
+        opts="--rm -ti -e SPHINXPROJ='CLIPOS' ${user} --volume .:/mnt:rw --workdir /mnt"
+        cmd="${runtime} run ${opts} ${image} ${cmd}"
+    else
+        export SPHINXPROJ='CLIPOS'
+        echo "[*] Running using system installed sphinx-build"
     fi
 
     # Build the HTML documentation
-    export SPHINXPROJ='CLIPOS'
-    sphinx-build -b html -j auto . _build
+    ${cmd}
 }
 
-main $@
+main ${@}
 
 # vim: set ts=4 sts=4 sw=4 et ft=sh:
