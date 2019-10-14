@@ -36,7 +36,9 @@ cd docs
 
 # Add and commit new content
 git add --all
-git commit -m "$(date --iso-8601) update"
+git commit \
+    --message "${CI_COMMIT_TITLE}" \
+    --message "Built from https://github.com/clipos/docs-src/commit/${CI_COMMIT_SHA}"
 
 # Setup git credential helper
 git config credential.helper "/bin/bash ${CI_PROJECT_DIR}/.ci/credential-helper.sh"
