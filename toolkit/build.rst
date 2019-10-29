@@ -76,6 +76,13 @@ To list the available `just` recipes:
 
    (toolkit) $ just --list
 
+To reduce compilation time, you may download pre-built SDKs and packages from
+the public CLIP OS CI using:
+
+.. code-block:: shell-session
+
+   (toolkit) $ just get-cache
+
 To run all steps required to build CLIP OS:
 
 .. code-block:: shell-session
