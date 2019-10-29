@@ -124,11 +124,8 @@ virtual infrastructure acting as testbed. To setup this infrastructure, use:
 
 .. code-block:: shell-session
 
-   (toolkit) $ pushd testbed/boxes/ipsec-gw
-   (toolkit) $ ./yaml2json template.yml | packer build -force -
-   (toolkit) $ vagrant box add --force --name "clipos-testbed/ipsec-gw" output/package.box
-   (toolkit) $ popd
-   (toolkit) $ pushd testbed
+   (toolkit) $ cd testbed
+   (toolkit) $ ./build_vagrant_boxes.sh # Follow the instructions here
    (toolkit) $ vagrant up
 
 This will setup virtual networks using ``Vagrant`` with ``libvirt`` and create
