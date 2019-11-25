@@ -32,18 +32,23 @@ Here is a requirements check-list about your global environment:
    .. admonition:: Supported Linux distributions
       :class: note
 
-      The project has been tested and is known to work with the following
+      The project is regularly tested and known to work with the following
       distributions:
 
         * Arch Linux
-        * Debian testing (*buster*) and Debian unstable
-        * Fedora 28
-        * Ubuntu 18.04
+        * Debian 10 (stable)
+
+      Although not regularly tested, the following distributions are supported
+      (i.e. we will fix reported bugs) and the project should work on those:
+
+        * Debian testing and unstable
+        * Fedora 31 (with cgroup v1 enabled)
+        * Ubuntu 18.04 and later
+        * CentOS 8
 
       Similarly, the following kernels are supported:
 
-        * 4.16 and above (Arch Linux, Debian unstable, etc.)
-        * 4.9 (Debian stable (*stretch*))
+        * 4.19 and above (Arch Linux, Debian unstable, etc.)
 
       The project will likely work on other distributions but we do not plan on
       supporting any other one yet.
@@ -221,8 +226,7 @@ your userland:
 Dependencies installation on supported Linux-distributions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On Ubuntu or Debian 10 (testing) and unstable (with ``contrib`` sources enabled
-for Debian):
+On Ubuntu or Debian (with ``contrib`` sources enabled for Debian):
 
 .. code-block:: shell-session
 
@@ -236,7 +240,7 @@ for Debian):
           debootstrap \
           rustc cargo
 
-On Fedora 28:
+On Fedora and CentOS:
 
 .. code-block:: shell-session
 
