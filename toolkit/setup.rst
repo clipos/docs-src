@@ -238,7 +238,7 @@ On Ubuntu or Debian (with ``contrib`` sources enabled for Debian):
           qemu libvirt-dev libvirt-daemon \
           virt-manager gir1.2-spiceclientglib-2.0 gir1.2-spiceclientgtk-3.0 \
           debootstrap \
-          rustc cargo
+          rustc cargo jq zstd
 
 On Fedora and CentOS:
 
@@ -252,7 +252,7 @@ On Fedora and CentOS:
           qemu libvirt-devel libvirt-daemon \
           virt-manager \
           debootstrap \
-          rust cargo
+          rust cargo jq zstd
 
 On Arch Linux:
 
@@ -266,7 +266,7 @@ On Arch Linux:
          qemu libvirt bridge-utils dnsmasq \
          virt-manager ebtables \
          debootstrap debian-archive-keyring \
-         rust
+         rust jq zstd
 
 
 How to fetch the entire source tree?
