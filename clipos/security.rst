@@ -796,8 +796,8 @@ Multi-level environment
 
 * Safe and controlled communication to the host:
 
-  * Unix sockets or encrypted TCP sockets (SSH)
-  * vsocks (virtio)
+  * Unix sockets or encrypted TCP sockets (SSH).
+  * vsocks (virtio).
 
   .. admonition:: Status
      :class: warning
@@ -806,9 +806,9 @@ Multi-level environment
 
 * Host controlled inter-level communication:
 
-  * File passing diode
-  * Encrypting / decryption diode
-  * Smartcard proxy and command filtering (see *Caml Crush* project)
+  * File passing diode.
+  * Encrypting / decryption diode.
+  * Smartcard proxy and command filtering (see *Caml Crush* project).
 
   .. admonition:: Status
      :class: warning
@@ -983,9 +983,9 @@ Deployment profiles
 
 Here is the list of the considered deployment profiles for the CLIP OS images:
 
-* Desktop environment
-* Administrator dedicated environment
-* Server environment
+* Desktop environment.
+* Administrator dedicated environment.
+* Server environment.
 
 Assets summary
 --------------

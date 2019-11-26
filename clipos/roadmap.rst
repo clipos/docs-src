@@ -46,9 +46,9 @@ Development model and secure by default software compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Everything is rebuilt from source (excepted proprietary firmware required for
-  hardware support).
+  hardware support)
 * Gentoo Hardened based binary executable compilation
-* Most of the Portage compilation security features are enabled.
+* Most of Portage compilation security features are enabled
 
 Linux kernel
 ^^^^^^^^^^^^
@@ -160,7 +160,7 @@ User data integrity and confidentiality
   * Password
   * Smartcard
 
-* Smartcard daemon isolation using Caml Crush.
+* Smartcard daemon isolation using Caml Crush
 
 Multi-level environment support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
