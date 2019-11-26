@@ -128,7 +128,7 @@ Built from source
      Completed in version **5.0 alpha**.
 
 * The project is entirely built from source. This property is guaranteed by
-  nightly clean builds of the entire project.
+  weekly clean builds of the entire project and nightly incremental builds.
 
   .. admonition:: Status
      :class: tip
@@ -413,9 +413,10 @@ System on disk data integrity
   secret used to unlock the DM-Integrity partition is sealed using the TPM.
 
   .. admonition:: Status
-     :class: warning
+     :class: tip
 
-     Not started.
+     Completed in version **5.0 beta** (`clipos/bugs#8
+     <https://github.com/clipos/bugs/issues/8>`_).
 
 System on disk data confidentiality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -733,8 +734,7 @@ Safe operation of untrusted filesystem
 
      Not started.
 
-* Virtual machine-based in-kernel mounting and sharing using NFS, CIFS, 9P,
-  VirtFS, etc.
+* Virtual machine-based in-kernel mounting and sharing using CIFS or VirtFS.
 
   .. admonition:: Status
      :class: warning
