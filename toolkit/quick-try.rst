@@ -45,7 +45,7 @@ following commands:
    $ wget https://files.clip-os.org/$BUILD/qemu.tar.zst
 
    # Extract and enter directory
-   $ tar xf qemu.tar.zst && cd clipos_*_qemu
+   $ zstdcat qemu.tar.zst | tar -x && cd clipos_*_qemu
 
    # Read the README
    $ cat README.md
