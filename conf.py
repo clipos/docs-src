@@ -26,9 +26,9 @@ copyright = '2018, ANSSI. CLIP OS is a trademark of the French Republic. For mor
 author = 'Timothée Ravier, Nicolas Godinho, Thibaut Sautereau, Mickaël Salaün'
 
 # The short X.Y version
-version = '5.0 (Alpha)'
+version = '5.0 (Beta)'
 # The full version, including alpha/beta/rc tags
-release = '5.0.0_alpha1'
+release = '5.0.0_beta3'
 
 
 # -- General configuration ---------------------------------------------------
