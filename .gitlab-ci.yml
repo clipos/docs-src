@@ -10,10 +10,9 @@ container:
   stage: container
   only:
     - schedules
-  image: quay.io/buildah/stable:latest
   tags:
       - clipos
-      - privileged
+      - shell
   script:
     - .ci/build_container_image.sh
 
