@@ -749,12 +749,15 @@ read/write access to:
   .. describe:: fs.protected_symlinks = 1
                 fs.protected_hardlinks = 1
 
-In addition, the following other two sysctls impose restrictions on the
-opening of FIFOs and regular files in order to make similar spoofing attacks
-harder:
+In addition, the following other two sysctls impose restrictions on the opening
+of FIFOs and regular files in order to make similar spoofing attacks harder
+(note however that `these restrictions currently do not apply to networked
+filesystems, among others <sysctl_protected_limitations_>`_):
 
   .. describe:: fs.protected_fifos = 2
                 fs.protected_regular = 2
+
+.. _sysctl_protected_limitations: https://www.openwall.com/lists/oss-security/2020/01/28/2
 
 We do not simply disable the BPF Just in Time compiler as CLIP OS plans on
 using it:
