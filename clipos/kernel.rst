@@ -457,6 +457,12 @@ Device Drivers
    TPM's HWRNG (see documentation of ``CONFIG_HW_RANDOM_TPM`` and the
    ``rng_core.default_quality`` command line parameter).
 
+.. describe:: CONFIG_STAGING=n
+
+   *Staging* drivers are typically of lower quality and under heavy
+   development. They are thus more likely to contain bugs, including security
+   vulnerabilities, and should be avoided.
+
 The IOMMU allows for protecting the system's main memory from arbitrary
 accesses from devices (e.g., DMA attacks). Note that this is related to
 hardware features. On a recent Intel machine, we enable the following:
