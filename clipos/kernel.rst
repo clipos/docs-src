@@ -232,6 +232,13 @@ Processor type and features
    The vsyscall table is not required anymore by libc and is a fixed-position
    potential source of ROP gadgets.
 
+.. describe:: CONFIG_X86_MCE=y
+              CONFIG_X86_MCE_INTEL=y
+
+   Machine Check Exceptions can report suspicious hardware errors, some of
+   which may for instance, on systems with ECC memory, reveal an ongoing
+   Rowhammer attack.
+
 .. describe:: CONFIG_MICROCODE=y
 
    Needed to benefit from microcode updates and thus security fixes (e.g.,
@@ -865,6 +872,13 @@ We pass the following command line parameters to the kernel:
       This can help detect overflows but we already rely on ``SLAB_CANARY``
       provided by linux-hardened. A canary is much better than a simple red
       zone as it is supposed to be random.
+
+.. describe:: mce=0
+
+   This makes the system always panic on uncorrected errors reported by the
+   Machine Check support. Otherwise, some of them may only cause a SIGBUS to be
+   sent, potentially allowing a malicious process to keep trying to exploit
+   a hardware bug like Rowhammer.
 
 .. describe:: page_alloc.shuffle=1
 
