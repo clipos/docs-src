@@ -75,6 +75,32 @@ machine with ``libvirt``, use:
 
    Any change of instrumentation features requires a full project rebuild.
 
+.. admonition:: Workaround for SELinux on Fedora, CentOS and RHEL
+   :class: important
+
+   To allow QEMU virtual machines access to files in your home directory, you
+   need to turn SELinux into permissive mode for the ``svirt_t`` domain:
+
+   .. code-block:: shell-session
+
+      $ sudo semanage permissive --add svirt_t
+
+   This change can be revert with:
+
+   .. code-block:: shell-session
+
+      $ sudo semanage permissive --delete svirt_t
+
+.. admonition:: Access to ``testbed/synced_folders`` for QEMU virtual machines
+   :class: important
+
+   Make sure that the directory ``testbed/synced_folders`` used by Vagrant is
+   also accessible for everybody:
+
+   .. code-block:: shell-session
+
+      $ chmod o+x ~user{,/clipos{,/testbed{,/synced_folders}}}
+
 Access to QEMU virtual machine over SSH
 ---------------------------------------
 
