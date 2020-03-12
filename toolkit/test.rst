@@ -111,4 +111,28 @@ To access a QEMU virtual machine over SSH, retrieve the IP address using
          -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
          admin@172.27.1.XX
 
+Testing updates
+---------------
+
+.. admonition:: Test updates disabled by default
+   :class: important
+
+   The default build configuration will create production images that do not
+   include the insecure key used to verify the integrity of test updates. This
+   key must not be used in production as the private one is public (included in
+   the testbed repository). To include this key in system images and build test
+   updates, enable the ``test-update`` instrumentation feature:
+
+   .. code-block:: shell-session
+
+      $ sed -i '/#"test-update"/s/#//g' config.toml
+
+   Any change of instrumentation features requires a full project rebuild.
+
+Log in as ``root`` and start the update process with the following command:
+
+.. code-block:: shell-session
+
+  $ systemctl start updater
+
 .. vim: set tw=79 ts=2 sts=2 sw=2 et:
