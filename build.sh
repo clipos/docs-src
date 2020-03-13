@@ -35,8 +35,8 @@ main() {
     elif [[ -n "$(command -v docker)" ]]; then
         runtime="docker"
     else
-        >&2 echo "Could not found either podman or docker in PATH."
-        >&2 echo "Set CLIPOS_USE_HOST_TOOLS="true" if you want to sphinx-build from your system."
+        >&2 echo "Could not find either podman or docker in PATH."
+        >&2 echo "Set CLIPOS_USE_HOST_TOOLS="true" if you want to use system installed \"sphinx-build\"."
         exit 1
     fi
 
@@ -70,7 +70,7 @@ main() {
         cmd="${runtime} run ${opts} ${image} ${cmd}"
     else
         export SPHINXPROJ='CLIPOS'
-        echo "[*] Running using system installed sphinx-build"
+        echo "[*] Running using system installed \"sphinx-build\""
     fi
 
     # Build the HTML documentation
