@@ -66,7 +66,7 @@ main() {
                 image="${image_name}"
             fi
         fi
-        opts="--rm -ti -e SPHINXPROJ='CLIPOS' ${user} --volume .:/mnt:rw --workdir /mnt"
+        opts="--security-opt label=disable --rm -ti -e SPHINXPROJ='CLIPOS' ${user} --volume .:/mnt:rw --workdir /mnt"
         cmd="${runtime} run ${opts} ${image} ${cmd}"
     else
         export SPHINXPROJ='CLIPOS'
