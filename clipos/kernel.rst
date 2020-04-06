@@ -475,6 +475,10 @@ Device Drivers
    TPM's HWRNG (see documentation of ``CONFIG_HW_RANDOM_TPM`` and the
    ``rng_core.default_quality`` command line parameter).
 
+.. describe:: CONFIG_DRM_LEGACY=n
+
+   Disable old drivers with unfixable security holes.
+
 .. describe:: CONFIG_STAGING=n
 
    *Staging* drivers are typically of lower quality and under heavy
