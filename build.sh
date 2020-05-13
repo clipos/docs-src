@@ -35,8 +35,8 @@ main() {
     elif [[ -n "$(command -v docker)" ]]; then
         runtime="docker"
     else
-        >&2 echo "Could not find either podman or docker in PATH."
-        >&2 echo "Set CLIPOS_USE_HOST_TOOLS="true" if you want to use system installed \"sphinx-build\"."
+        >&2 echo "[!] Could not find either \"podman\" or \"docker\". Aborting."
+        >&2 echo "Set the CLIPOS_USE_HOST_TOOLS environment variable if you want to use your system's sphinx-build."
         exit 1
     fi
 
