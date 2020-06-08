@@ -79,6 +79,11 @@ General setup
 
    Symbols are only useful for debug and attack purposes.
 
+.. describe:: CONFIG_BPF_JIT_ALWAYS_ON=y
+
+   Remove the BPF interpreter to avoid speculative execution of BPF
+   instructions. See also the ``net.core.bpf_jit_harden`` sysctl.
+
 .. describe:: CONFIG_USERFAULTFD=n
 
    The ``userfaultfd()`` system call adds attack surface and can `make heap
