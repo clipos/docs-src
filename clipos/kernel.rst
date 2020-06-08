@@ -391,6 +391,12 @@ Power management and ACPI options
    The CLIP OS swap partition is encrypted with an ephemeral key and thus
    cannot support suspend to disk.
 
+.. describe:: CONFIG_ACPI_TABLE_UPGRADE=n
+
+   Do not provide means to upgrade arbitrary ACPI tables. Note that even if
+   enabled, this functionality is restricted by ``lockdown``'s ``integrity``
+   mode.
+
 Firmware Drivers
 ~~~~~~~~~~~~~~~~
 
