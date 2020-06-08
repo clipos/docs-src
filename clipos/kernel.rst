@@ -260,6 +260,11 @@ Processor type and features
    Enabling those features would only present userspace with more attack
    surface.
 
+.. describe:: CONFIG_MEMORY_HOTPLUG=n
+
+   We do not use memory hot-add and it makes memory management code more
+   complex.
+
 .. describe:: CONFIG_KSM=n
 
    Enabling this feature can make cache side-channel attacks such as
