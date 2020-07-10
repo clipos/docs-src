@@ -418,6 +418,10 @@ Firmware Drivers
    Prevent any malicious PCI device from performing DMA attacks while the IOMMU
    is disabled as part of the handover from system firmware to kernel.
 
+.. describe:: CONFIG_EFI_CUSTOM_SSDT_OVERLAYS=n
+
+   Do not provide means to load arbitrary ACPI tables.
+
 Virtualization
 ~~~~~~~~~~~~~~
 
